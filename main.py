@@ -1,9 +1,9 @@
 import pygame
-
 from constants import *
 from models.player import Player
 from models.asteroid import Asteroid
 from models.asteroidfield import AsteroidField
+from models.shot import Shot
 
 def main() :
     pygame.init()
@@ -16,6 +16,7 @@ def main() :
     updatables = pygame.sprite.Group()
     drawables = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    shots = pygame.sprite.Group()
 
     # The magic happens in the Sprite class that our Player inherits from.
     # When you set the containers class variable and then create a new instance,
@@ -23,6 +24,7 @@ def main() :
     Player.containers = (updatables, drawables)
     Asteroid.containers = (asteroids, updatables, drawables)
     AsteroidField.containers = (updatables)
+    Shot.containers = (shots, updatables, drawables)
 
     print("Starting asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}")
